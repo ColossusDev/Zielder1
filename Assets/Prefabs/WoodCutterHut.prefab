@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52f134456f094cac9b16c3bf5418249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refreshJobList: 3
-  refreshJobListTimer: 0
+  isBuild: 0
+  jobListCount: 0
   worker: {fileID: 1109556985501655695, guid: 922bb2d35394241edbf1cfa8a4edea45, type: 3}
   resourceAmount: 0
 --- !u!114 &2151794166988395712
@@ -110,11 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe1fc496c037444ba9630fbb47b8227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rescource: 0
-  resourceType: wood
-  maxCarry: 0
   posX: 4
   posY: 4
+  nonGrow: 1
+  reuse: 0
+  fullGrow: 0
+  me: {fileID: 0}
 --- !u!114 &2840289549745912471
 MonoBehaviour:
   m_ObjectHideFlags: 0

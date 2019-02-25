@@ -136,6 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posX: 4
   posY: 4
+  nonGrow: 0
+  reuse: 0
+  fullGrow: 0
   me: {fileID: 0}
 --- !u!114 &5752962117260005499
 MonoBehaviour:
@@ -149,6 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff55e475c4ac841bab9bbb9652f4b77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rescource: 0
-  resourceType: 
-  maxCarry: 5
+  maxWeight: 5
+  type: 0
+  count: 0

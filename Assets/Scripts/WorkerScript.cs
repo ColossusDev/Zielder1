@@ -81,34 +81,34 @@ class WorkerControllerSystem : ComponentSystem
                         }
                     }
 
-                    if (wo.work.onBase == false && (wo.work.myJob == null || wo.resource.rescource >= wo.resource.maxCarry))
+                    if (wo.work.onBase == false && (wo.work.myJob == null || wo.resource.count >= wo.resource.maxWeight))
                     {
                         wo.work.movingToBase = true;
                         wo.work.onTarget = false;
                     }
-                    else if (wo.work.onBase == true && (wo.work.myJob == null || wo.resource.rescource > 0))
+                    else if (wo.work.onBase == true && (wo.work.myJob == null || wo.resource.count > 0))
                     {
                         if (wo.work.myJob == null)
                         {
                             wo.work.myJob = wo.work.workstation.GetComponent<ResourceGatheringScript>().nextFreeJob;
                             wo.work.workstation.GetComponent<ResourceGatheringScript>().nextFreeJob = null;
                         }
-                        if (wo.resource.rescource > 0)
+                        if (wo.resource.count > 0)
                         {
-                            bool transfered = wo.work.workstation.GetComponent<ResourceGatheringScript>().transferResources(wo.resource.rescource);
+                            bool transfered = wo.work.workstation.GetComponent<ResourceGatheringScript>().transferResources(wo.resource.count);
 
                             if (transfered == true)
                             {
-                                wo.resource.rescource = 0;
+                                wo.resource.count = 0;
                             }
                         }
                     }
-                    else if (wo.work.onTarget == false && wo.work.myJob != null && wo.resource.rescource == 0)
+                    else if (wo.work.onTarget == false && wo.work.myJob != null && wo.resource.count == 0)
                     {
                         wo.work.movingToTarget = true;
                         wo.work.onBase = false;
                     }
-                    else if (wo.work.onTarget == true && wo.work.myJob != null && wo.resource.rescource < wo.resource.maxCarry)
+                    else if (wo.work.onTarget == true && wo.work.myJob != null && wo.resource.count < wo.resource.maxWeight)
                     {
                         if (wo.work.timeToResource < (1 / wo.work.gatherSpeed))
                         {
@@ -116,10 +116,10 @@ class WorkerControllerSystem : ComponentSystem
                         }
                         else if (wo.work.timeToResource >= (1/wo.work.gatherSpeed))
                         {
-                            wo.resource.rescource++;
+                            wo.resource.PushResource(wo.resource.type, 1);
                             wo.work.timeToResource = 0;
-                            wo.work.myJob.getGoal().GetComponent<ObjectResourceControllerScript>().rescource--;
-                            if (wo.work.myJob.getGoal().GetComponent<ObjectResourceControllerScript>().rescource <= 0)
+                            wo.work.myJob.getGoal().GetComponent<ObjectResourceControllerScript>().PullResource(wo.resource.type, 1);
+                            if (wo.work.myJob.getGoal().GetComponent<ObjectResourceControllerScript>().count <= 0)
                             {
                                 GameObject temp =  wo.work.myJob.getGoal();
                                 wo.work.workstation.GetComponent<ResourceGatheringScript>().cuttingJobs.JobIsDone(wo.work.myJob);
@@ -129,18 +129,18 @@ class WorkerControllerSystem : ComponentSystem
                             }
                         }
                     }
-                    else if (wo.work.onTarget == true && wo.work.myJob != null && wo.resource.rescource >= wo.resource.maxCarry)
+                    else if (wo.work.onTarget == true && wo.work.myJob != null && wo.resource.count >= wo.resource.maxWeight)
                     {
                         wo.work.movingToBase = true;
                         wo.work.onTarget = false;
                     }
-                    else if (wo.work.onBase == true && wo.work.myJob != null && wo.resource.rescource >= wo.resource.maxCarry)
+                    else if (wo.work.onBase == true && wo.work.myJob != null && wo.resource.count >= wo.resource.maxWeight)
                     {
-                        bool transfered = wo.work.workstation.GetComponent<ResourceGatheringScript>().transferResources(wo.resource.rescource);
+                        bool transfered = wo.work.workstation.GetComponent<ResourceGatheringScript>().transferResources(wo.resource.count);
 
                         if (transfered == true)
                         {
-                            wo.resource.rescource = 0;
+                            wo.resource.count = 0;
                         }
                     }
                 }

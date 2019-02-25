@@ -7,6 +7,10 @@ public class ObjectScript : MonoBehaviour
     public int posX;
     public int posY;
 
+    public bool nonGrow;
+    public bool reuse;
+    public bool fullGrow;
+
     public GameObject me;
 
     private void Start()

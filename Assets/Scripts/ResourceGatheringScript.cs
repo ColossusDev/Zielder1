@@ -16,7 +16,8 @@ public class ResourceGatheringScript : MonoBehaviour
     List<GameObject> workerList;
     [SerializeField] GameObject worker;
 
-    string resourceType = "wood";
+    //refactor
+    Resource.Res resourceType = Resource.Res.wood;
     [SerializeField] int resourceAmount = 0;
     int maxCarry = 10000;
 
@@ -28,8 +29,6 @@ public class ResourceGatheringScript : MonoBehaviour
 
     public void SetupBuilding()
     {
-        isBuild = true; 
-
         cuttingJobs = new JobQueue(50);
         workerList = new List<GameObject>();
 

@@ -110,6 +110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posX: 0
   posY: 0
+  nonGrow: 1
+  reuse: 0
+  fullGrow: 0
   me: {fileID: 0}
 --- !u!114 &3298837739891220421
 MonoBehaviour:

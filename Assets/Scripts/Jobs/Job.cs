@@ -29,10 +29,10 @@ public class Job
         return new Point((int)goal.transform.position.x * 4, (int)goal.transform.position.y * 4);
     }
 
-    public float GetWork()
-    {
-        return goal.GetComponent<ObjectResourceControllerScript>().rescource;
-    }
+    //public float GetWork()
+    //{
+    //    return goal.GetComponent<ObjectResourceControllerScript>().rescource;
+    //}
 
     public void SetInProgress()
     {

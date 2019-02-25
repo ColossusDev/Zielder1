@@ -16,7 +16,6 @@ class ObjectProcessControllerSystem : ComponentSystem
     {
         public Transform transform;
         public ObjectScript obs;
-        public ObjectGrowControllerScript grow;
         public ObjectProcessControllerScript process;
     }
 
@@ -24,15 +23,16 @@ class ObjectProcessControllerSystem : ComponentSystem
     {
         foreach (var obj in GetEntities<Componets>())
         {
-            GameObject[] allCutterHuts = GameObject.FindGameObjectsWithTag(obj.process.processorTag);
+            GameObject[] allProcessHuts = GameObject.FindGameObjectsWithTag(obj.process.processorTag);
 
-            if (obj.grow.growIndicator >= obj.grow.growTime)
+            if (obj.obs.fullGrow == true || obj.obs.nonGrow == true)
             {
-                foreach (GameObject go in allCutterHuts)
+                foreach (GameObject go in allProcessHuts)
                 {
                     Vector3 diff = go.transform.position - obj.transform.position;
                     float curDistance = diff.sqrMagnitude;
 
+                    //process Range kann ich mir auch aus dem Gebäude holen und somit je nach gebäude die Range einstellbar machen
                     if (curDistance < obj.process.processorRange)
                     {
                         bool full = go.GetComponent<ResourceGatheringScript>().cuttingJobs.AddJob(go, obj.obs.me, curDistance);

@@ -106,11 +106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe1fc496c037444ba9630fbb47b8227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rescource: 0
-  resourceType: 
-  maxCarry: 0
   posX: 16
   posY: 16
+  nonGrow: 1
+  reuse: 0
+  fullGrow: 0
+  me: {fileID: 0}
 --- !u!114 &7254899807855800340
 MonoBehaviour:
   m_ObjectHideFlags: 0

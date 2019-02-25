@@ -35,8 +35,11 @@ class ObjectGrowControllerSystem : ComponentSystem
             if (obj.grow.growIndicator < obj.grow.growTime)
             {
                 obj.grow.growIndicator += t * obj.grow.growSpeed;
-                obj.resource.rescource = 1 + (int)(obj.grow.growIndicator / 11);
-
+                obj.resource.count = 1 + (int)(obj.grow.growIndicator / 11);
+                    if (obj.grow.growIndicator > obj.grow.growTime)
+                    {
+                        obj.obs.fullGrow = true;
+                    }
                 float scaleByGrowth = obj.grow.growIndicator / 100;
 
                 obj.transform.localScale = new Vector3(scaleByGrowth, scaleByGrowth, 1);
