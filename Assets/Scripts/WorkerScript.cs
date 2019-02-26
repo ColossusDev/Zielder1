@@ -75,7 +75,7 @@ class WorkerControllerSystem : ComponentSystem
                     {
                         if (wo.work.myJob.getGoal() == null)
                         {
-                            wo.work.workstation.GetComponent<ResourceGatheringScript>().cuttingJobs.JobIsDone(wo.work.myJob);
+                            wo.work.workstation.GetComponent<ObjectJobControllerScript>().cuttingJobs.JobIsDone(wo.work.myJob);
                             wo.work.myJob = null;
                             Debug.Log("Job entfernt");
                         }
@@ -90,12 +90,12 @@ class WorkerControllerSystem : ComponentSystem
                     {
                         if (wo.work.myJob == null)
                         {
-                            wo.work.myJob = wo.work.workstation.GetComponent<ResourceGatheringScript>().nextFreeJob;
-                            wo.work.workstation.GetComponent<ResourceGatheringScript>().nextFreeJob = null;
+                            wo.work.myJob = wo.work.workstation.GetComponent<ObjectJobControllerScript>().nextFreeJob;
+                            wo.work.workstation.GetComponent<ObjectJobControllerScript>().nextFreeJob = null;
                         }
                         if (wo.resource.count > 0)
                         {
-                            bool transfered = wo.work.workstation.GetComponent<ResourceGatheringScript>().transferResources(wo.resource.count);
+                            bool transfered = wo.work.workstation.GetComponent<ObjectResourceControllerScript>().PushResource(wo.resource.type, wo.resource.count);
 
                             if (transfered == true)
                             {
@@ -122,7 +122,7 @@ class WorkerControllerSystem : ComponentSystem
                             if (wo.work.myJob.getGoal().GetComponent<ObjectResourceControllerScript>().count <= 0)
                             {
                                 GameObject temp =  wo.work.myJob.getGoal();
-                                wo.work.workstation.GetComponent<ResourceGatheringScript>().cuttingJobs.JobIsDone(wo.work.myJob);
+                                wo.work.workstation.GetComponent<ObjectJobControllerScript>().cuttingJobs.JobIsDone(wo.work.myJob);
                                 wo.work.myJob = null;
                                 Debug.Log("Job entfernt");
                                 temp.GetComponent<ObjectScript>().DestroyThisObject();
@@ -136,7 +136,7 @@ class WorkerControllerSystem : ComponentSystem
                     }
                     else if (wo.work.onBase == true && wo.work.myJob != null && wo.resource.count >= wo.resource.maxWeight)
                     {
-                        bool transfered = wo.work.workstation.GetComponent<ResourceGatheringScript>().transferResources(wo.resource.count);
+                        bool transfered = wo.work.workstation.GetComponent<ObjectResourceControllerScript>().PushResource(wo.resource.type, wo.resource.count);
 
                         if (transfered == true)
                         {

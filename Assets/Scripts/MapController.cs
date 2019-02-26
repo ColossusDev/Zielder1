@@ -116,7 +116,6 @@ public class MapController : MonoBehaviour
             obj.transform.position = new Vector2(x * 0.25f, y * 0.25f);
             obj.GetComponent<ObjectScript>().posX = x;
             obj.GetComponent<ObjectScript>().posY = y;
-            obj.GetComponent<ResourceGatheringScript>().SetupBuilding();
             obj.transform.SetParent(GameObject.Find("ObjectTileMap").transform);
             navMesh[obj.GetComponent<ObjectScript>().posX, obj.GetComponent<ObjectScript>().posY] = 0.0f;
             return true;

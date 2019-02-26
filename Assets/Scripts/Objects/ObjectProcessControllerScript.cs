@@ -35,7 +35,7 @@ class ObjectProcessControllerSystem : ComponentSystem
                     //process Range kann ich mir auch aus dem Gebäude holen und somit je nach gebäude die Range einstellbar machen
                     if (curDistance < obj.process.processorRange)
                     {
-                        bool full = go.GetComponent<ResourceGatheringScript>().cuttingJobs.AddJob(go, obj.obs.me, curDistance);
+                        bool full = go.GetComponent<ObjectJobControllerScript>().cuttingJobs.AddJob(go, obj.obs.me, curDistance);
                     }
                 }
             }

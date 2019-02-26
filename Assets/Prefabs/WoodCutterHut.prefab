@@ -9,10 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2501816864546744470}
-  - component: {fileID: 2501816864546744471}
-  - component: {fileID: 2501816864546744468}
-  - component: {fileID: 2151794166988395712}
   - component: {fileID: 2840289549745912471}
+  - component: {fileID: 2501816864546744471}
+  - component: {fileID: 2151794166988395712}
+  - component: {fileID: 9122341345055265999}
+  - component: {fileID: 771071645135292310}
+  - component: {fileID: 7029010128593095097}
   m_Layer: 0
   m_Name: WoodCutterHut
   m_TagString: WoodCutterHut
@@ -34,6 +36,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2840289549745912471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501816864546744469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &2501816864546744471
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -82,22 +96,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2501816864546744468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2501816864546744469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52f134456f094cac9b16c3bf5418249, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuild: 0
-  jobListCount: 0
-  worker: {fileID: 1109556985501655695, guid: 922bb2d35394241edbf1cfa8a4edea45, type: 3}
-  resourceAmount: 0
 --- !u!114 &2151794166988395712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +114,7 @@ MonoBehaviour:
   reuse: 0
   fullGrow: 0
   me: {fileID: 0}
---- !u!114 &2840289549745912471
+--- !u!114 &9122341345055265999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,6 +123,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 2501816864546744469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
+  m_Script: {fileID: 11500000, guid: ff55e475c4ac841bab9bbb9652f4b77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWeight: 50
+  type: 0
+  count: 0
+--- !u!114 &771071645135292310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501816864546744469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f099030e265c42f69c4cdc5b94211d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worker: {fileID: 1109556985501655695, guid: 922bb2d35394241edbf1cfa8a4edea45, type: 3}
+--- !u!114 &7029010128593095097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501816864546744469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c986351326da24a059e9a3855c64e7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobsAmount: 0

@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 6668179274086819835}
   - component: {fileID: 6514587011849054591}
   - component: {fileID: 1632709150849748867}
-  - component: {fileID: 7254899807855800340}
+  - component: {fileID: 1233871261061821650}
+  - component: {fileID: 7794319053786394631}
+  - component: {fileID: 5648364427014338079}
   m_Layer: 0
   m_Name: MinerHouse
   m_TagString: StoneMinerHouse
@@ -112,7 +114,7 @@ MonoBehaviour:
   reuse: 0
   fullGrow: 0
   me: {fileID: 0}
---- !u!114 &7254899807855800340
+--- !u!114 &1233871261061821650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,10 +123,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 7362256817392904298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52f134456f094cac9b16c3bf5418249, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f099030e265c42f69c4cdc5b94211d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBuild: 1
-  jobListCount: 0
   worker: {fileID: 1109556985501655695, guid: 922bb2d35394241edbf1cfa8a4edea45, type: 3}
-  resourceAmount: 0
+--- !u!114 &7794319053786394631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7362256817392904298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c986351326da24a059e9a3855c64e7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobsAmount: 0
+--- !u!114 &5648364427014338079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7362256817392904298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff55e475c4ac841bab9bbb9652f4b77e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWeight: 200
+  type: 1
+  count: 0
