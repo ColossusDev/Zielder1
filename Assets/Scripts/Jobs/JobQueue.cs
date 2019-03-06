@@ -15,13 +15,13 @@ public class JobQueue
         jobQueue = new List<Job>();
     }
 
-    public bool AddJob(GameObject start, GameObject goal, float dist) //return if queue is full or not
+    public bool AddJob(GameObject start, GameObject goal) //return if queue is full or not
     {
         if (maxLenght == jobQueue.Count)
         {
             return true;
         }
-        Job tempJob = new Job(start, goal, dist);
+        Job tempJob = new Job(start, goal);
         if (JobIsInList(tempJob))
         {
             return false;

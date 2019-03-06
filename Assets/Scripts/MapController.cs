@@ -135,4 +135,6 @@ public class MapController : MonoBehaviour
 
         return PathFind.Pathfinding.FindPath(grid, _from, _to);
     }
+
+    //Funktion get Way to nearest Tile of the Type (water, sand, stone....)
 }

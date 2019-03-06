@@ -7,6 +7,7 @@ TagManager:
   - WoodCutterHut
   - StoneMinerHouse
   - Blueprint
+  - JobController
   layers:
   - Default
   - TransparentFX

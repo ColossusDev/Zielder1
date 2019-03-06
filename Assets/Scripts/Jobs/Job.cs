@@ -7,12 +7,11 @@ public class Job
 {
     GameObject start;
     GameObject goal;
-    public float dist;
 
     bool inProgress = false;
 
 
-    public Job(GameObject start, GameObject goal, float dist)
+    public Job(GameObject start, GameObject goal)
     {
         this.start = start;
         this.goal = goal;
@@ -52,6 +51,11 @@ public class Job
     public GameObject getGoal()
     {
         return goal;
+    }
+
+    public GameObject getStart()
+    {
+        return start;
     }
 
     public bool SameJobCheck(Job jobCheck)

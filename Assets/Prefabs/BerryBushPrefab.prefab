@@ -84,6 +84,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 5725249cdf4624d839c98ded6e430738,
         type: 3}
+    - target: {fileID: 4247314091465336660, guid: f6ba126426b1b4f8eb4fb7cf00d73de2,
+        type: 3}
+      propertyPath: growTime
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2172221713392158805, guid: f6ba126426b1b4f8eb4fb7cf00d73de2,
         type: 3}
       propertyPath: processorRange
@@ -92,12 +97,7 @@ PrefabInstance:
     - target: {fileID: 2172221713392158805, guid: f6ba126426b1b4f8eb4fb7cf00d73de2,
         type: 3}
       propertyPath: processorTag
-      value: Berry
-      objectReference: {fileID: 0}
-    - target: {fileID: 4247314091465336660, guid: f6ba126426b1b4f8eb4fb7cf00d73de2,
-        type: 3}
-      propertyPath: growTime
-      value: 25
+      value: BerryCollecterHut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6ba126426b1b4f8eb4fb7cf00d73de2, type: 3}

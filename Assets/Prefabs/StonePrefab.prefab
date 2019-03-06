@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff55e475c4ac841bab9bbb9652f4b77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rescource: 150
-  resourceType: stone
-  maxCarry: 0
+  maxWeight: 0
+  type: 1
+  count: 150
 --- !u!114 &837264286804852428
 MonoBehaviour:
   m_ObjectHideFlags: 0

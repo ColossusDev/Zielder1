@@ -111,6 +111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posX: 0
   posY: 0
+  nonGrow: 0
+  reuse: 0
+  fullGrow: 0
   me: {fileID: 0}
 --- !u!114 &4816325442429308620
 MonoBehaviour:
@@ -139,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff55e475c4ac841bab9bbb9652f4b77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rescource: 0
-  resourceType: wood
-  maxCarry: 0
+  maxWeight: 0
+  type: 0
+  count: 10
 --- !u!114 &4247314091465336660
 MonoBehaviour:
   m_ObjectHideFlags: 0

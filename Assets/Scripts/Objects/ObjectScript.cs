@@ -10,6 +10,7 @@ public class ObjectScript : MonoBehaviour
     public bool nonGrow;
     public bool reuse;
     public bool fullGrow;
+    public bool inJobList;
 
     public GameObject me;
 

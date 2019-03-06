@@ -7,7 +7,12 @@ public class ObjectProcessControllerScript : MonoBehaviour
 {
     public string processorTag;
     public int processorRange;
+    public JobController jobController;
 
+    private void Start()
+    {
+        jobController = GameObject.Find("JobController").GetComponent<JobController>();
+    }
 }
 
 class ObjectProcessControllerSystem : ComponentSystem
@@ -32,10 +37,11 @@ class ObjectProcessControllerSystem : ComponentSystem
                     Vector3 diff = go.transform.position - obj.transform.position;
                     float curDistance = diff.sqrMagnitude;
 
-                    //process Range kann ich mir auch aus dem Gebäude holen und somit je nach gebäude die Range einstellbar machen
-                    if (curDistance < obj.process.processorRange)
+                    //process Range sollte ich mir auch aus dem Gebäude holen und somit je nach gebäude die Range einstellbar machen
+                    if (obj.obs.inJobList == false && curDistance < obj.process.processorRange)
                     {
-                        bool full = go.GetComponent<ObjectJobControllerScript>().cuttingJobs.AddJob(go, obj.obs.me, curDistance);
+                        obj.obs.inJobList = true;
+                        obj.process.jobController.AddJobToList(new Job(go, obj.obs.me));
                     }
                 }
             }
