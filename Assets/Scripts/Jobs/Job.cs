@@ -8,7 +8,8 @@ public class Job
     GameObject start;
     GameObject goal;
 
-    bool inProgress = false;
+    public bool inProgress = false;
+    public bool done = false;
 
 
     public Job(GameObject start, GameObject goal)

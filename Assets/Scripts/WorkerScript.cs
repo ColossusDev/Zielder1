@@ -41,8 +41,8 @@ public class WorkerScript : MonoBehaviour
 
     public bool onBase = false;
     public bool onTarget = false;
-    public bool movingToBase = false;
     public bool movingToTarget = false;
+    public Point currentTarget;
 
 }
 
@@ -63,57 +63,30 @@ class WorkerControllerSystem : ComponentSystem
 
         foreach (var wo in GetEntities<Componets>())
         {
+            wo.work.water -= Ttimer;
+            wo.work.food -= Ttimer;
+            wo.work.energy -= Ttimer;
+
             //Job Routine
-            if (wo.work.movingToBase == false || wo.work.movingToTarget == false)
-                {
-                    wo.work.water -= Ttimer;
-                    wo.work.food -= Ttimer;
-                    wo.work.energy -= Ttimer;
-                    // Job logik 
-                    //welches Job wann machen 
-                    //Wann wo hin gehen 
-                    //Wann wo arbeiten 
-                }
+            if (wo.work.myJob == null)
+            {
+                wo.work.myJob = wo.work.jobController.NextFreeJob(wo.work);
+            }
+            else if (wo.work.myJob.done == true)
+            {
+                wo.work.myJob = wo.work.jobController.NextFreeJob(wo.work);
+            }
+            else if (wo.work.myJob.done == false)
+            {
 
+            }
 
-                //Move Routine
-                if (wo.work.movingToBase == true)
-                    {
-                    if (wo.work.wayToTarget == null)
-                        {
-                            wo.work.wayToTarget = wo.work.mapController.Astar(wo.obs.posX, wo.obs.posY, wo.work.myJob.getStart().GetComponent<ObjectScript>().posX, wo.work.myJob.getStart().GetComponent<ObjectScript>().posY -1);
-                        }
-                        else if (wo.work.wayToTarget.Count == 0)
-                        {
-                            wo.work.wayToTarget = null;
-                            wo.work.movingToBase = false;
-                            wo.work.onBase = true;
-                            wo.work.nextWayPoint = false;
-                        }
-                        else if (wo.work.nextWayPoint == false)
-                        {
-                            wo.work.nextWayPointX = wo.work.wayToTarget[0].x * 0.25f;
-                            wo.work.nextWayPointY = wo.work.wayToTarget[0].y * 0.25f;
-                            wo.work.nextWayPoint = true;
-                        }
-                        else if (Vector3.Distance(new Vector3(wo.transform.position.x, wo.transform.position.y, 0), new Vector3(wo.work.nextWayPointX, wo.work.nextWayPointY, 0)) <= 0.01f)
-                        {
-                            wo.obs.posX = wo.work.wayToTarget[0].x;
-                            wo.obs.posY = wo.work.wayToTarget[0].y;
-                            wo.work.wayToTarget.RemoveAt(0);
-                            wo.work.nextWayPoint = false;
-                        }
-                        else if (Vector3.Distance(new Vector3(wo.transform.position.x, wo.transform.position.y, 0), new Vector3(wo.work.nextWayPointX, wo.work.nextWayPointY, 0)) >= 0.01f)
-                        {
-                            wo.transform.position = Vector3.MoveTowards(wo.transform.position, new Vector3(wo.work.nextWayPointX, wo.work.nextWayPointY, 0), timer * wo.work.walkSpeed);
-                        }
-                    }
 
             if (wo.work.movingToTarget == true)
             {
                 if (wo.work.wayToTarget == null)
                     {
-                        wo.work.wayToTarget = wo.work.mapController.Astar(wo.obs.posX, wo.obs.posY, wo.work.myJob.getGoal().GetComponent<ObjectScript>().posX, wo.work.myJob.getGoal().GetComponent<ObjectScript>().posY - 1);
+                        wo.work.wayToTarget = wo.work.mapController.Astar(wo.obs.posX, wo.obs.posY, wo.work.currentTarget.x, wo.work.currentTarget.y - 1);
                     }
                     else if (wo.work.wayToTarget.Count == 0)
                     {

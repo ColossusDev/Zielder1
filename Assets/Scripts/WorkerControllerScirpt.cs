@@ -22,4 +22,6 @@ public class WorkerControllerScirpt : MonoBehaviour
         go.GetComponent<ObjectScript>().posY = 5;
         workerList.Add(go);
     }
+
+
 }

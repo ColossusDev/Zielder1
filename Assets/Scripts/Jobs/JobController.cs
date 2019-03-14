@@ -41,9 +41,8 @@ public class JobController : MonoBehaviour
         allJobs.Remove(j);
     }
 
-    public Job NextFreeJob()
+    public Job NextFreeJob(WorkerScript wo)
     {
-
         for (int i = 0; i < allJobs.Count; i++)
         {
             if (allJobs[i].GetInProgress() == false)
